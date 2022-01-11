@@ -7,6 +7,16 @@ import './styles.scss';
 const Vis = () => {
   useEffect(() => {
     let mouseDown = false;
+
+    const linkedByIndex = {};
+    data.links.forEach(function (d) {
+      linkedByIndex[d.source + ',' + d.target] = 1;
+    });
+
+    function neighboring(a, b) {
+      return linkedByIndex[a + ',' + b];
+    }
+
     const svg = d3.select('svg'),
       width = +svg.attr('width'),
       height = +svg.attr('height');
@@ -53,9 +63,8 @@ const Vis = () => {
         const self = this;
         d3.select(this).raise();
 
-        d3.selectAll('.node').style('filter', function (event, d) {
-          console.log(d);
-          if (this !== self) {
+        d3.selectAll('.node').style('filter', function (d2) {
+          if (this !== self && (!neighboring(d.id, d2.id) && !neighboring(d2.id, d.id))) {
             return 'opacity(0.3)';
           } else {
             return null;
