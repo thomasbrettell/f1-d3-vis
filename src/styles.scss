@@ -30,3 +30,20 @@ header {
   flex-direction: column;
   width: 100%;
 }
+
+#information {
+  h1 {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  border: 1px solid black;
+  padding: 20px;
+  max-width: 300px;
+}
+
+#legend {
+  transform: translate(50px, 50px);
+}
