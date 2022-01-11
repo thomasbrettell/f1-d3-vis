@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
-import misData from './miserables.json';
-console.log(misData);
+import data from '../scripts/f1-data-transformed.json';
+console.log(data);
 import './styles.scss';
 
 const Vis = () => {
@@ -20,25 +20,23 @@ const Vis = () => {
           return d.id;
         })
       )
-      .force('charge', d3.forceManyBody().strength(-75))
+      .force('charge', d3.forceManyBody())
       .force('center', d3.forceCenter(width / 2, height / 2));
 
     const link = svg
       .append('g')
       .attr('class', 'links')
       .selectAll('line')
-      .data(misData.links)
+      .data(data.links)
       .enter()
       .append('line')
-      .attr('stroke-width', function (d) {
-        return Math.sqrt(d.value);
-      });
+      .attr('stroke-width', '0.25');
 
     const node = svg
       .append('g')
       .attr('class', 'nodes')
       .selectAll('g')
-      .data(misData.nodes)
+      .data(data.nodes)
       .enter()
       .append('g')
       .attr('class', 'node')
@@ -65,9 +63,9 @@ const Vis = () => {
       .attr('dy', '0.3em')
       .attr('dx', '0.6em');
 
-    simulation.nodes(misData.nodes).on('tick', ticked);
+    simulation.nodes(data.nodes).on('tick', ticked);
 
-    simulation.force('link').links(misData.links);
+    simulation.force('link').links(data.links);
 
     function ticked() {
       link
@@ -106,7 +104,7 @@ const Vis = () => {
   });
   return (
     <>
-      <header>
+      {/* <header>
         <h1>Link between all F1 drivers and who they have driven against</h1>
         <p>
           <a
@@ -117,8 +115,8 @@ const Vis = () => {
             Source: F1 Results
           </a>
         </p>
-      </header>
-      <svg width={window.innerWidth} height={window.innerHeight - 120} />
+      </header> */}
+      <svg width={window.innerWidth} height={window.innerHeight} />
     </>
   );
 };
