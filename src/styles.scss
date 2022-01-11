@@ -10,9 +10,14 @@
 
 .node {
   cursor: pointer;
+  position: relative;
 
   text {
     font-size: 10px;
+  }
+
+  &:hover {
+    z-index: 10;
   }
 }
 

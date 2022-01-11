@@ -6,6 +6,7 @@ import './styles.scss';
 
 const Vis = () => {
   useEffect(() => {
+    let mouseDown = false;
     const svg = d3.select('svg'),
       width = +svg.attr('width'),
       height = +svg.attr('height');
@@ -40,13 +41,47 @@ const Vis = () => {
       .enter()
       .append('g')
       .attr('class', 'node')
+      .attr('data-driver', (d) => d.id)
       .call(
         d3
           .drag()
           .on('start', dragstarted)
           .on('drag', dragged)
           .on('end', dragended)
-      );
+      )
+      .on('mouseover', function (event, d) {
+        const self = this;
+        d3.select(this).raise();
+
+        d3.selectAll('.node').style('filter', function (event, d) {
+          console.log(d);
+          if (this !== self) {
+            return 'opacity(0.3)';
+          } else {
+            return null;
+          }
+        });
+
+        link.style('stroke-width', function (l) {
+          if (d === l.source || d === l.target) {
+            return 1;
+          }
+        });
+
+        link.style('stroke', function (l) {
+          if (d === l.source || d === l.target) return 'red';
+          else {
+            return 'rgb(234, 234, 234)';
+          }
+        });
+      })
+      .on('mouseout', () => {
+        if (!mouseDown) {
+          d3.selectAll('.node').style('filter', null);
+          link.style('stroke', null);
+          link.style('stroke-width', 0.25);
+        }
+      });
 
     node
       .append('circle')
@@ -86,6 +121,7 @@ const Vis = () => {
     }
 
     function dragstarted(event, d) {
+      mouseDown = true;
       if (!event.active) simulation.alphaTarget(0.3).restart();
       d.fx = d.x;
       d.fy = d.y;
@@ -97,6 +133,7 @@ const Vis = () => {
     }
 
     function dragended(event, d) {
+      mouseDown = false;
       if (!event.active) simulation.alphaTarget(0);
       d.fx = null;
       d.fy = null;
