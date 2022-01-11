@@ -1,13 +1,7 @@
 import React from 'react';
-import Counter from './components/Counter';
-
+import Vis from './Vis';
 const App = () => {
-  return (
-    <>
-      <h1>React+Webpack Boilerplate</h1>
-      <Counter />
-    </>
-  );
+  return <Vis />;
 };
 
 export default App;

@@ -1,0 +1,54 @@
+{
+  "2021": {
+    "drivers": [
+      "Max Verstappen",
+      "Lewis Hamilton",
+      "Valtteri Bottas",
+      "Sergio Pérez",
+      "Carlos Sainz Jr.",
+      "Lando Norris",
+      "Charles Leclerc",
+      "Daniel Ricciardo",
+      "Pierre Gasly",
+      "Fernando Alonso",
+      "Esteban Ocon",
+      "Sebastian Vettel",
+      "Lance Stroll",
+      "Yuki Tsunoda",
+      "George Russell",
+      "Kimi Räikkönen",
+      "Nicholas Latifi",
+      "Antonio Giovinazzi",
+      "Mick Schumacher",
+      "Robert Kubica",
+      "Nikita Mazepin"
+    ]
+  },
+  "2020": {
+    "drivers": [
+      "Lewis Hamilton",
+      "Valtteri Bottas",
+      "Max Verstappen",
+      "Sergio Pérez",
+      "Daniel Ricciardo",
+      "Carlos Sainz Jr.",
+      "Alexander Albon",
+      "Charles Leclerc",
+      "Lando Norris",
+      "Pierre Gasly",
+      "Lance Stroll",
+      "Esteban Ocon",
+      "Sebastian Vettel",
+      "Daniil Kvyat",
+      "Nico Hülkenberg",
+      "Kimi Räikkönen",
+      "Antonio Giovinazzi",
+      "George Russell",
+      "Romain Grosjean",
+      "Kevin Magnussen",
+      "Nicholas Latifi",
+      "Jack Aitken",
+      "Pietro Fittipaldi"
+    ]
+  }
+}
