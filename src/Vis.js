@@ -4,7 +4,7 @@ import data from '../scripts/f1-data-transformed.json';
 console.log(data);
 import './styles.scss';
 
-const keys = ['20', '10', '00', '90', '80'];
+const keys = ['20', '10', '00', '90', '80', '70'];
 
 const Vis = () => {
   useEffect(() => {
@@ -206,7 +206,7 @@ const Vis = () => {
         </p>
         <p>
           This Force-Directed Graph shows the connection between all F1 drivers
-          between 2021 - 1989 and all the drivers they have driven against.
+          between 2021 - 1979 and all the drivers they have driven against.
           <br />
           <br />
           Drivers are plotted in closer proximity the more races they have
